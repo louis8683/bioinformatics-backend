@@ -75,6 +75,12 @@ public class DataController {
         return ResponseEntity.ok(sessions);
     }
 
+    @GetMapping("/session/all")
+    public ResponseEntity<List<SessionResponse>> getAllSessions() {
+        List<SessionResponse> sessions = dataService.getAllSessions();
+        return ResponseEntity.ok(sessions);
+    }
+
     // UPDATE
 
     @PutMapping("/session/{sessionId}")
@@ -87,7 +93,7 @@ public class DataController {
 
     // DELETE
 
-    @DeleteMapping("/data/{entryId}")
+    @DeleteMapping("/entry/{entryId}")
     public ResponseEntity<Void> deleteEntry(@PathVariable Long entryId) {
         dataService.deleteEntry(entryId);
         return ResponseEntity.noContent().build();

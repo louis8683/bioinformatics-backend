@@ -139,6 +139,12 @@ public class DataService {
                 .toList();
     }
 
+    public List<SessionResponse> getAllSessions() {
+        return sessionRepository.findAll().stream()
+                .map(SessionResponse::from)
+                .toList();
+    }
+
     // UPDATE
 
     public void updateSession(Long sessionId, SessionRequest sessionRequest) {
